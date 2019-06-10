@@ -10,9 +10,11 @@ public float UpForce = 200f;
 private bool isDead = false;
 private Rigidbody2D rb2d;
 
+public int rotateSpeed = 10;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame updated
     void Start()
+
     {
          rb2d = GetComponent<Rigidbody2D> ();
          anim = GetComponent<Animator> ();
@@ -30,6 +32,7 @@ private Rigidbody2D rb2d;
                 anim.SetTrigger("Flap");
             }
         }
+        rb2d.rotation = rb2d.velocity.y*rotateSpeed;
     }
 
     void OnCollisionEnter2D() {
@@ -37,5 +40,6 @@ private Rigidbody2D rb2d;
         anim.SetTrigger("Die");
         GameControl.instance.BirdDied();
         rb2d.velocity = Vector2.zero;
-    } 
+    }
+
 }
