@@ -7,10 +7,11 @@ public class Bird_Scrpt : MonoBehaviour
 
 private Animator anim;
 public float UpForce = 200f;
+public int rotateSpeed = 10;
 private bool isDead = false;
 private Rigidbody2D rb2d;
 
-public int rotateSpeed = 10;
+
 
     // Start is called before the first frame updated
     void Start()
