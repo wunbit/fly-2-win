@@ -9,6 +9,11 @@ public class SceneTransitions : MonoBehaviour
     private bool freePlay;
     public FreeplayVar freePlayObject;
     // Start is called before the first frame update
+    void Awake()
+    {
+        freePlayObject = GameObject.Find("FreeplayVariable").GetComponent<FreeplayVar>();
+    }
+    
     void Start()
     {
         transitionAnim = GetComponent<Animator>();
@@ -22,8 +27,8 @@ public class SceneTransitions : MonoBehaviour
     public void StartGame(string sceneName)
     {
         freePlayObject.freePlay = false;
-        PlayerPrefs.SetInt("Lives", 3);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt("Lives", 3);
+        //PlayerPrefs.Save();
         StartCoroutine(Transition(sceneName));
     }
 

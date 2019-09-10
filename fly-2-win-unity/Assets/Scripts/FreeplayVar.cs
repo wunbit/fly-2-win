@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreeplayVar : MonoBehaviour
 {
-    public bool freePlay = false;
+    public bool freePlay;
 
     public void Awake()
     {

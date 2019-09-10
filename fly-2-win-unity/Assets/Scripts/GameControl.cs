@@ -44,11 +44,12 @@ public class GameControl : MonoBehaviour
             if (lives == 0)
             {
                 gameOver = true;
+                SceneManager.LoadScene("ResetLives");
             }
         }
         if (freePlay)
         {
-            lives = 99;
+            //lives = 99;
             livesText.text = "Lives: " + "∞";
         }
     }
@@ -56,7 +57,7 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lives > 0)
+        if (lives > 0 || freePlay)
         {
             if (gameOver && Input.GetKeyDown (KeyCode.Space) || gameOver && Input.GetMouseButtonUp (0))
         {
@@ -64,12 +65,12 @@ public class GameControl : MonoBehaviour
             SceneManager.LoadScene("MainGame");
         }
         }
-        if (lives <= 0)
+        else if (lives <= 0)
         {
             if (gameOver && Input.GetKeyDown (KeyCode.Space) || gameOver && Input.GetMouseButtonUp (0))
             {
                 gameOver = false;
-                SceneManager.LoadScene("Start");
+                SceneManager.LoadScene("ResetLives");
             }
         }
     }
@@ -93,12 +94,12 @@ public class GameControl : MonoBehaviour
             livesText.text = "Lives: " + lives.ToString();
         }
         gameOver = true;
-        if (lives > 0)
+        if (lives > 0 || freePlay)
         {
             gameOverTxt.text = "Continue";
             restartText.text = "Flap to Restart";
         }
-        if (lives <= 0)
+        else if (lives <= 0)
         {
             gameOverTxt.text = "GAME OVER";
             restartText.text = "Flap to Go to Main Menu";
