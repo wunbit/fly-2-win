@@ -6,16 +6,20 @@ public class ColumnPool : MonoBehaviour
 {
     public int columnPoolSize = 5;
     public GameObject columnPrefab;
+    private GameControl GCInstance;
     public float spawnRate = 4f;
-    public float columnMin = -1f;
-    public float columnMax = 3.5f;
+    public float columnYMin = -1f;
+    public float columnYMax = 3.5f;
     private GameObject[] columns;
-    private Vector2 objectPoolPosition = new Vector2 (-15f, -25f);
-    private float timeSinceLastSpawned;
-    private float spawnXPosition = 10f;
+    public Vector2 objectPoolPosition = new Vector2 (-15f, -25f);
+    public float timeSinceLastSpawned;
+    public float spawnXPosition = 10f;
     private int currentColumn = 0;
-    
     // Start is called before the first frame update
+    void Awake()
+    {
+        GCInstance = GameObject.Find("GameControl").GetComponent<GameControl>();
+    }
     void Start()
     {
         columns = new GameObject[columnPoolSize];
@@ -30,10 +34,10 @@ public class ColumnPool : MonoBehaviour
     {
         timeSinceLastSpawned += Time.deltaTime;
 
-        if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate)
+        if (GCInstance.gameOver == false && timeSinceLastSpawned >= spawnRate)
         {
             timeSinceLastSpawned = 0;
-            float spawnYPosition = Random.Range (columnMin, columnMax);
+            float spawnYPosition = Random.Range (columnYMin, columnYMax);
             columns[currentColumn].transform.position = new Vector2 (spawnXPosition, spawnYPosition);
             currentColumn++;
             if (currentColumn >= columnPoolSize)
