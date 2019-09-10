@@ -34,7 +34,7 @@ public class GameControl : MonoBehaviour
         highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
         gameOverText = GameObject.Find("GameOverText");
         highScoreText.text = "High Score:" + ReadScore().ToString();
-        freePlay = GameObject.Find("FreeplayVariable").GetComponent<FreeplayVar>().freePlay;
+        freePlay = StaticVars.freePlay;
         Debug.Log(freePlay);
         gameOverText.SetActive(false);
         if (!freePlay)
