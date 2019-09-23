@@ -20,6 +20,7 @@ public class GameControl : MonoBehaviour
     public bool gameOver = false;
     public float scrollSpeed = -4f;
     private int score = 0;
+    private string currentUser;
     public int lives = 3;
     public int round = 1;
 
@@ -39,6 +40,7 @@ public class GameControl : MonoBehaviour
         columnPoolScript = GameObject.Find("ColumnManager").GetComponent<ColumnPool>();
         highScoreText.text = "High Score:" + ReadScore().ToString();
         freePlay = StaticVars.freePlay;
+        currentUser = StaticVars.currentUser;
         Debug.Log(freePlay);
         gameOverText.SetActive(false);
         if (!freePlay)
