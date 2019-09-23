@@ -10,15 +10,18 @@ public class GameControl : MonoBehaviour
     public Text scoreText;
     public Text highScoreText;
     public Text livesText;
+    public ColumnPool columnPoolScript;
     private string highScore;
+    private float spawnRate;
     public bool freePlay = false;
     public GameObject gameOverText;
     public Text gameOverTxt;
     public Text restartText;
     public bool gameOver = false;
-    public float scrollSpeed = -1.5f;
+    public float scrollSpeed = -4f;
     private int score = 0;
     public int lives = 3;
+    public int round = 1;
 
     void Awake()
     {
@@ -33,6 +36,7 @@ public class GameControl : MonoBehaviour
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
         gameOverText = GameObject.Find("GameOverText");
+        columnPoolScript = GameObject.Find("ColumnManager").GetComponent<ColumnPool>();
         highScoreText.text = "High Score:" + ReadScore().ToString();
         freePlay = StaticVars.freePlay;
         Debug.Log(freePlay);
@@ -82,6 +86,13 @@ public class GameControl : MonoBehaviour
             }
             score++;
             scoreText.text = "Score: " + score.ToString();
+            if (score > round * 10)
+            {
+                //makes the game harder every 5 scores
+                round++;
+                columnPoolScript.spawnRate -= 0.2f;
+                scrollSpeed -= 0.2f;
+            }
         }
         public void BirdDied()
     {

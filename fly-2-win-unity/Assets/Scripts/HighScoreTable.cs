@@ -16,6 +16,7 @@ public class HighScoreTable : MonoBehaviour
         entryContainer = transform.Find("HighScoreEntryContainer");
         entryTemplate = transform.Find("HighScoreEntryContainer/HighScoreEntryTemplate");
         entryTemplate.gameObject.SetActive(false);
+        RandomHighScoreList();
         BuildHighScoreTable();
     }
 

@@ -37,7 +37,14 @@ public class SceneTransitions : MonoBehaviour
         StartCoroutine(Transition(sceneName));
     }
 
-    public void Continue(string sceneName)
+    /* public void Continue(string sceneName)
+    {
+        PlayerPrefs.SetInt("Lives", 3);
+        PlayerPrefs.Save();
+        StartCoroutine(Transition(sceneName));
+    } */
+
+    public void RestockLives(string sceneName)
     {
         PlayerPrefs.SetInt("Lives", 3);
         PlayerPrefs.Save();
