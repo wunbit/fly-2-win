@@ -7,5 +7,6 @@ public static class StaticVars
     public static bool freePlay = false;
     public static string currentUser = null;
     public static int lives = 0;
-    
+    public static int highScore = 0;
+
 }

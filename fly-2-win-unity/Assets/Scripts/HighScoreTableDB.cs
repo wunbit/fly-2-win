@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class HighScoreTable : MonoBehaviour
+public class HighScoreTableDB : MonoBehaviour
 {
-       private Transform entryContainer;
+    private Transform entryContainer;
     private Transform entryTemplate;
     private string jSonStringDB;
     public float templateHeight = 50f;

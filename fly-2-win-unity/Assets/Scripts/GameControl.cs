@@ -6,23 +6,27 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    //Public objects for Editor
     public static GameControl instance;
     public Text scoreText;
     public Text highScoreText;
     public Text livesText;
     public ColumnPool columnPoolScript;
-    private string highScore;
-    private float spawnRate;
-    public bool freePlay = false;
     public GameObject gameOverText;
     public Text gameOverTxt;
     public Text restartText;
-    public bool gameOver = false;
-    public float scrollSpeed = -4f;
-    private int score = 0;
+    //Private Vars
+    private int highScore;
+    private float spawnRate;
+    private bool freePlay = false;
     private string currentUser;
-    public int lives = 3;
+    public int lives = 0;
+    //Public Vars
+    public float scrollSpeed = -4f;
+    [HideInInspector]
+    public bool gameOver = false;
     public int round = 1;
+    public int score = 0;
 
     void Awake()
     {
@@ -34,13 +38,16 @@ public class GameControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         highScoreText = GameObject.Find("HighScoreText").GetComponent<Text>();
         gameOverText = GameObject.Find("GameOverText");
         columnPoolScript = GameObject.Find("ColumnManager").GetComponent<ColumnPool>();
+        highScore = StaticVars.highScore;
         highScoreText.text = "High Score:" + ReadScore().ToString();
         freePlay = StaticVars.freePlay;
         currentUser = StaticVars.currentUser;
+        //lives = StaticVars.lives;
         Debug.Log(freePlay);
         gameOverText.SetActive(false);
         if (!freePlay)

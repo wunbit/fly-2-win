@@ -30,7 +30,7 @@ public class SetUserName : MonoBehaviour
     public void SetUserButton()
     {
         StartCoroutine(SetUser());
-        Debug.Log(inputUsername.text);
+        //Debug.Log(inputUsername.text);
     }
 
     IEnumerator SetUser()
@@ -45,7 +45,7 @@ public class SetUserName : MonoBehaviour
                 Debug.Log(www.error);
             }
             else
-            {
+            { 
                 string setUserResult = www.downloadHandler.text;
                 if (setUserResult == "Success")
                 {
