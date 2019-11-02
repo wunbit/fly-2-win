@@ -198,12 +198,15 @@ MonoBehaviour:
   scoreText: {fileID: 1746886941}
   highScoreText: {fileID: 508221096}
   livesText: {fileID: 1357977906}
+  columnPoolScript: {fileID: 0}
   gameOverText: {fileID: 465670712}
   gameOverTxt: {fileID: 465670715}
   restartText: {fileID: 885887348}
-  gameOver: 0
-  scrollSpeed: -4
   lives: 0
+  scrollSpeed: -4
+  gameOver: 0
+  round: 1
+  score: 0
 --- !u!1 &336218394
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336218394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17580938, z: 0}
+  m_LocalPosition: {x: 0.1, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1061565601}
@@ -389,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417578546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.48, y: 0.17580938, z: 0}
+  m_LocalPosition: {x: 20.58, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164284995}
@@ -760,7 +763,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -823,8 +826,8 @@ MonoBehaviour:
   columnPrefab: {fileID: 6877866001659731706, guid: 3ebb31daa587cc64fb03ead13ddc8b15,
     type: 3}
   spawnRate: 1.8
-  columnYMin: -3
-  columnYMax: 1.4
+  columnYMin: -2.5
+  columnYMax: 0.6
   objectPoolPosition: {x: -15, y: -25}
   timeSinceLastSpawned: 10
   spawnXPosition: 9
@@ -1177,7 +1180,7 @@ Transform:
   m_GameObject: {fileID: 1192359233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1199,7 +1202,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.18, y: 0.67}
+    oldSize: {x: 2.32, y: 1.36}
     newSize: {x: 1.18, y: 0.67}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
